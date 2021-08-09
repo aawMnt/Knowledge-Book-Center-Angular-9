@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+#cart-info{
+    /* padding-top: 100px; */
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    #cart-info{
+        margin-top: 70px;
+        
+    }
+   
+
+}
+
+.mat-card{
+    background-color: aqua;
+    margin-bottom: 50px;
+    
+}
+body{
+    padding-top: 30px;
+    background-color:  #00695f;
+    height: auto;
+    /* padding-bottom: 52vh; */
+    padding-bottom: 180px;
+    
+}
+.book-cart{
+    font-size: 50px;
+    margin-top: 20px;
+    color: #ff9100;
+    font-family: 'Lato', sans-serif;
+
+}
+.empty-cart{
+    margin-top: 50px;
+    color: darkgoldenrod;
+    text-transform: capitalize;
+}
+.empty-cart mat-icon{
+    font-size: 70px;
+    color: black
+}
+.cart-total{
+    color: #618833;
+    font-family: 'Oswald', sans-serif;
+
+}

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+body{
+  background-color: #00695f;
+  height: 100vh;
+  
+}
+ .stepper{
+  background-color: #00695f;
+}
+  .stp{
+      margin-top: 60px;
+  }
+  .mat-icon-style{
+    font-size: 70px; 
+    color: #00e676;
+  }
+  .conform-text{
+      text-transform: capitalize;
+      color: #00695c;
+  }
+  .error-msg{
+    font-size: 70px; 
+
+    color:#d50000;
+     }
+
+  .invalid-msg{
+    text-transform: capitalize;
+    color: #ef5350;
+  }   
+  .details{
+    text-transform: capitalize;
+    color: #009688;
+  }
+  .add{
+    text-transform: capitalize;
+    color: #009688;
+  }
+  .person{
+    font-size: 50px;
+    color: #00e676;
+  }
+  .add-icon{
+    font-size: 50px;
+    color: #00e676;
+  }
+  
+  .mat-card{
+      background-color: #efebe9;
+      margin-top: 50px;
+  }
+ .footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+ }
+ @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  body{
+    
+    height: 100vh;
+    }
+ }
+
+ @media only screen and (max-width: 600px) {
+  .footer{
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* margin-top: 30vh; */
+  }
+  body{
+    
+    height: 100vh;
+    }
+ }
+ #payment{
+   text-transform: capitalize;
+   font-family: 'Oswald', sans-serif;
+ }
+ .review-text{
+   font-weight: bold;
+   color: orchid;
+   font-family: 'Lato', sans-serif;
+   
+
+ }
+ #select{
+   font-size: 20px;
+   color: #00695c;
+ }
+ #total{
+   color: #4caf50;
+ }
+ #qnt{
+   color: #795548;
+ }
+ #cod{
+   color: #00695c;
+ }
+ #checkout{
+   margin-bottom: 100px;
+ }
+
+ #review{
+   margin-top: 100px;
+ }
+
+ .mrq{
+ color:
+ #b71c1c;
+ }
+ .mrq h1{
+  font-family: 'Play', sans-serif;
+  font-weight: bold;
+ }
+
+ @media only screen and (max-width: 768px) {
+  .mrq h1{
+    font-family: 'Play', sans-serif;
+    font-size: 7px;
+    font-weight: bold;
+   }
+   .mrq img{
+     height: 5px;
+   }
+ }

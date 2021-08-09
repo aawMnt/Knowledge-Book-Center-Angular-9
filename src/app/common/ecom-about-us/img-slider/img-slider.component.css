@@ -1,0 +1,39 @@
+
+
+
+@media only screen and (max-width: 600px) {
+  
+    #img {
+          height: 200px;
+         
+    }
+
+}
+
+/* * for ipad */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+    #img {
+        height: 200px;
+       
+  }
+}
+
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+    /* background-color: #455a64; */
+    
+}
+
+#img-slid h1 b {
+    color: #b9f6ca;
+}
+
+
+/* **************************************************************************************************************************** */
+
+
+
+

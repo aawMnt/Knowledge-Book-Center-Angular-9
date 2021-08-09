@@ -1,0 +1,51 @@
+<div class="bootsrap-wraper">
+  <div class="container text-center">
+    <div class="col-md-10">
+      <h1 class="add-book">Add Book</h1>
+      <mat-card>
+        <form [formGroup]="addBook">
+          <!-- book name -->
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Book Name</mat-label>
+            <input matInput placeholder="Book" formControlName="name">
+            <mat-icon matSuffix>border_color</mat-icon>
+
+          </mat-form-field>
+
+          <!-- book author -->
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Book Author Name</mat-label>
+            <input matInput placeholder="Auther" formControlName="author">
+            <mat-icon matSuffix>border_color</mat-icon>
+
+          </mat-form-field>
+
+          <!-- book price -->
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Book Price</mat-label>
+            <input type="number" matInput placeholder="Price" formControlName="price">
+            <mat-icon matSuffix>pin</mat-icon>
+
+          </mat-form-field>
+
+
+          <div class="container text-center">
+            <img [src]="imgUrl" *ngIf="imgUrl" height="250px">
+          </div>
+
+          <!-- img file  -->
+          <input type="file" (change)="file($event)">
+
+
+
+          <div class="container mt-4 pb-4">
+            <button mat-flat-button color="primary" class="mr-4" (click)="addBookClk(addBook)">ADD BOOK</button>
+            <button mat-flat-button color="accent" (click)="reset()">RESET</button>
+          </div>
+        </form>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

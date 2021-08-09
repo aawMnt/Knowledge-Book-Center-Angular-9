@@ -1,0 +1,14 @@
+.mat-card{
+    background-color: cornflowerblue;
+}
+.admin-menu{
+    text-transform: uppercase;
+    color: gold;
+}
+.btn button{
+    color: #ffff8d;
+}
+
+.log-out{
+    color: #f44336;
+}

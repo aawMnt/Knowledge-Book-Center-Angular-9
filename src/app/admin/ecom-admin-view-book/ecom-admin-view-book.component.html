@@ -1,0 +1,49 @@
+<div class="bootstrap-wraper">
+    <div class="container text-center">
+      <h1 class="view-book">View Books</h1>
+<mat-card>
+  
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of getBook | paginate:{id:'listing_pagination',itemsPerPage:4,currentPage:p,totalItems : totalRecords }; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td><img src="{{obj.retrievedImage}}" height="200px"></td>
+        <td>{{obj.name}}</td>
+        <td>{{obj.author}}</td>
+        <td>{{obj.price}}</td>
+        <td>
+          <button mat-mini-fab  color="warn" (click)="delete(obj.id)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
+      <td>
+        <button mat-mini-fab  color="accent" (click)="updateBooks(obj.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+       
+      </tr>
+    
+      
+    </tbody>
+  </table>
+  <div>
+    <button mat-flat-button color="warn" (click)="deleteAll()">Delete All</button>
+  </div>
+  <div class="container float-right mt-4">
+    <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="p = $event" class="float-right"></pagination-controls>
+  </div>
+</mat-card>
+    </div>
+</div>

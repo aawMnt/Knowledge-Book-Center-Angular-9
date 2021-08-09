@@ -1,0 +1,11 @@
+body{
+    background-color: cadetblue;
+    padding-top: 50px;
+}
+.mat-card{
+    background-color: darkkhaki;
+}
+
+.mat-card mat-nav-list a{
+    color: olive;
+}

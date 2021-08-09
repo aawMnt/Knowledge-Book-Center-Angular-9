@@ -1,0 +1,26 @@
+<ngx-ui-loader fgsType="rectangle-bounce" text="Loading..." textColor="#03a9f4" fgsColor="#03a9f4" fgsSize="150"
+    pbThickness="8" pbColor="#03a9f4">
+</ngx-ui-loader>
+
+
+
+<div ngxUiLoaderBlurred blur="8">
+
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+           
+           <app-ecom-side-nav (sidenavClose)="sidenav.close()"></app-ecom-side-nav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-navbar (sidenavToggle)="sidenav.toggle()"></app-navbar>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+            
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+</div>
+
+
+

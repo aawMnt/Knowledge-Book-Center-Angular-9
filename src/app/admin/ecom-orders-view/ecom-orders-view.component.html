@@ -1,0 +1,60 @@
+<h1 class="page-title">
+  View Order
+</h1>
+
+<div class="container" id="all-itams">
+  <div class="col-md-12">
+    <mat-card *ngFor="let obj of orders | paginate: { itemsPerPage: itemsPerPage , currentPage: currentPage}; let i=index;" class="mt-4 text-center" style="overflow-x:auto;">
+      {{1 + itemsPerPage * (currentPage - 1) + i}}
+      <div class="row mt-4">
+
+        <div class="col-md-4">
+          Customer Name :&nbsp;{{obj.firstname}}&nbsp;{{obj.lastname}}
+        </div>
+        <div class="col-md-4">
+          Customer Mobile No :&nbsp;{{obj.phoneNo}}
+        </div>
+        <div class="col-md-4">
+          Customer Email id :&nbsp;{{obj.email}}
+        </div>
+      </div>
+     
+      <div class="container mt-3 text-center">
+        Payment Mode: <mat-chip color="primary" selected>{{obj.payment.cardType}}</mat-chip>
+       </div>
+
+
+      <table class="table mt-4">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Book Quantity</th>
+            <th scope="col">Book Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj2 of obj.product; let i=index;">
+            <th scope="row">{{i+1}}</th>
+            <td><img src="data:image/jpeg;base64,{{obj2.picByte}}" height="100px"></td>
+            <td>{{obj2.name}}</td>
+            <td>{{obj2.qnt}}</td>
+            <td>{{obj2.price}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <!-- {{total}} -->
+
+      <div class="container">
+        
+        <button mat-flat-button color="warn" (click)="deleteOrder(obj.cId)">Delete</button>&nbsp;
+        <button mat-flat-button color="accent" (click)="viewDetails(obj.cId)">View Details</button>&nbsp;
+      </div>
+    </mat-card>
+    <div class="container mt-4">
+      <pagination-controls (pageChange)="currentPage = $event" class="text-center"></pagination-controls>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap');
+
+
+.table tbody  tr td {
+    text-transform: capitalize;
+    color: teal;
+    font-family: 'Fira Sans', sans-serif;
+}
+#all-itams .col-md-4{
+    font-family: 'Fira Sans', sans-serif;
+    word-spacing: 2px;
+    color: darkgoldenrod;
+}
+
+.page-title{
+    text-align: center;
+    font-weight: bold;
+    color: #006064;
+}

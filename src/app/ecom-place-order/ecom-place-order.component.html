@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <mat-horizontal-stepper class="stp" #stepper class="stepper">
+    <mat-step label="Your Details" [stepControl]="firstFormGroup">
+
+      <!-- ************************************************************Persnal Details******************************************************* -->
+
+
+      <mat-card class="text-center" id="checkout">
+
+        <marquee behavior="alternate" direction="right" class="mrq">
+          
+          <div class="row">
+           <img src="../../assets/images/warning.png" alt="" height="30px">
+           <h1>This is Demo Website so don't add your personal Payment details Thank You</h1>
+           <img src="../../assets/images/warning.png" alt="" height="30px">
+          </div>
+         </marquee>
+
+        <form [formGroup]="firstFormGroup" class="mt-4">
+          <ng-template matStepLabel>Fill out your Details</ng-template>
+
+          <!-- validation for email  -->
+          <div class="alert alert-warning mb-4" *ngIf="firstFormGroup.get('email').hasError('email')">
+            Please Enter Valid Email-id
+          </div>
+            
+          <!-- validation for mobile  -->
+          <div class="alert alert-warning" *ngIf="firstFormGroup.get('phoneNo').hasError('pattern')">
+            Please Enter a Valid 10 digit Phone Number
+          </div>
+
+          <img src="../../assets/images/man.png" height="100px">
+          <h1 class="details">Fill out your Details</h1>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>First Name</mat-label>
+                  <input matInput placeholder="First name" formControlName="firstname" required>
+                </mat-form-field> &nbsp;
+
+
+
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Last name" formControlName="lastname" required>
+                </mat-form-field> <br>
+              </div>
+
+              <div class="col-md-6">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput placeholder="Email" formControlName="email" required>
+                </mat-form-field> &nbsp;
+
+
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Mobile Number</mat-label>
+                  <input type="number" matInput placeholder="Mobile No." formControlName="phoneNo" required>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-card>
+
+
+    </mat-step>
+
+
+
+    <mat-step label="Shiping Name" [stepControl]="secondFormGroup">
+
+      <div class="col-md-12 text-center">
+
+        <!-- ********************************************************Address****************************************************************************      -->
+        <mat-card class="text-center" id="checkout">
+          <marquee behavior="alternate" direction="right" class="mrq">
+          
+            <div class="row">
+             <img src="../../assets/images/warning.png" alt="" height="30px">
+             <h1>This is Demo Website so don't add your personal Payment details Thank You</h1>
+             <img src="../../assets/images/warning.png" alt="" height="30px">
+            </div>
+           </marquee>
+              
+          <!-- validation for City pin code  -->
+          <div class="alert alert-warning" *ngIf="secondFormGroup.get('pin').hasError('pattern')">
+            Please Enter a Valid 6 digit City Pin Code.
+          </div>
+
+
+          <img src="../../assets/images/address.png" height="100px">
+          <h1 class="add">Fill out your address</h1>
+          <form [formGroup]="secondFormGroup">
+  
+            <div class="container">
+
+              
+              <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Ex. 1 Main St, New York, NY" required formControlName="address">
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" placeholder="Ex.Mumbai,Pune" required>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>City Pin Code</mat-label>
+              <input type="number" matInput formControlName="pin" placeholder="Ex.400001,400002" required>
+            </mat-form-field>
+            </div>
+
+           
+
+
+            <div>
+              <button mat-raised-button color="accent" matStepperPrevious>Back</button>&nbsp;
+              <button mat-raised-button color="primary" matStepperNext (click)="next()">Next</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+
+
+    </mat-step>
+
+    <!-- ************************************************************Pyment Details******************************************************************* -->
+    <mat-step label="Shiping Name" [stepControl]="thirdFormGroup">
+
+
+
+      <mat-card class="text-center">
+
+       <marquee behavior="alternate" direction="right" class="mrq">
+          
+         <div class="row">
+          <img src="../../assets/images/warning.png" alt="" height="30px">
+          <h1>This is Demo Website so don't add your personal Payment details Thank You</h1>
+          <img src="../../assets/images/warning.png" alt="" height="30px">
+         </div>
+        </marquee>
+        
+        
+        <div class="row">
+          <div class="col-md-6 text-center" id="payment">
+
+            <h1 class="review-text">Your Product Review</h1>
+
+           <div class="container" id="review">
+            <div *ngIf="selectMode" id="select">Please select Card Type <br>
+              Total = <span id="total">₹{{total}}</span><br>
+              the product quantity is : <span id="qnt">{{qnt}}</span>
+            </div>
+            <div *ngIf="debit" id="select">
+              You Select Debit Card Payment<br>
+              Total = <span id="total">₹{{total}}</span><br>
+              the product quantity is : <span id="qnt">{{qnt}}</span>
+            </div>
+
+            <div *ngIf="cradit" id="select">
+              You Select Credit Card Payment<br>
+              Total = <span id="total">₹{{total}}</span><br>
+              the product quantity is : <span id="qnt">{{qnt}}</span>
+            </div>
+
+
+            <!-- <div *ngIf="cod" id="cod">
+              <h2>Your Payment Mode Is Cash On Delivery<br>
+                Total = <span id="total">₹{{total}}</span><br>
+                the product quantity is : <span id="qnt">{{qnt}}</span>
+              </h2>
+           </div> -->
+            </div>
+
+
+          </div>
+
+          <div class="col-md-6 mt-4">
+               
+            <!-- validation for card number  -->
+            <div class="alert alert-warning" *ngIf="thirdFormGroup.get('cardNo').hasError('pattern')">
+              Please Enter a Valid 16 digit Card Number
+            </div>
+
+            <!-- validation for card cvv  -->
+            <div class="alert alert-warning" *ngIf="thirdFormGroup.get('cvvNo').hasError('pattern')">
+              Please Enter a Valid 3 digit Card CVV Number
+            </div>
+
+            <img src="../../assets/images/payment.png" height="100px">
+            <h1 class="add">Fill out your Payment Details</h1>
+
+            <form [formGroup]="thirdFormGroup">
+
+
+
+              <label>Card Type</label>&nbsp;
+              <select formControlName="cardType" (change)="cardMode($event)" name="cardType">
+                <option *ngFor="let obj of cardType" value={{obj.card}}>{{obj.card}}</option>
+              </select>
+
+              <div *ngIf="cardPayment">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Card owner Name</mat-label>
+                  <input matInput placeholder="name" formControlName="cardName">
+
+
+                </mat-form-field><br>
+
+                <mat-form-field appearance="legacy" class="mr-4">
+                  <mat-label>Card Number</mat-label>
+                  <input type="number" matInput placeholder="number" formControlName="cardNo">
+                  <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                  <mat-label>Card CVV</mat-label>
+                  <input type="number" matInput placeholder="cvv" formControlName="cvvNo">
+                  <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+
+                </mat-form-field><br>
+
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Card Expiry Date</mat-label>
+                  <input type="date" matInput formControlName="expiryDate">
+                </mat-form-field><br>
+              </div>
+              <div>
+                <button mat-raised-button color="accent" matStepperPrevious>Back</button>&nbsp;
+                <button mat-raised-button color="primary" matStepperNext (click)="next()">Next</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+       
+      </mat-card>
+      
+
+
+
+    </mat-step>
+    <!-- ********************************************************************************************************************************************* -->
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <mat-card *ngIf="done">
+        <div class="col-md-12 text-center">
+          <mat-icon class="mat-icon-style">verified</mat-icon>
+          <h1>
+            <p class="conform-text">You are now done. Conform your Order</p>
+          </h1>
+          <div>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>&nbsp;
+            <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>&nbsp;
+            <button mat-raised-button color="primary" class="mt-2" (click)="confOrder()"
+              [disabled]="!firstFormGroup.valid || !secondFormGroup.valid ">Conform Order</button>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-card *ngIf="!done" class="text-center">
+        <div class="col-md-12 ">
+          <mat-icon class="error-msg">new_releases</mat-icon>
+          <h1 class="invalid-msg">Fill out your Details , Fill out your address and Fill out your Payment Details is empty or invalid</h1>
+        </div>
+        <div class="container">
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          <button mat-raised-button color="warn" (click)="stepper.reset()" class="ml-4">Reset</button>
+        </div>
+
+      </mat-card>
+
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <!-- ***************************************************************Footer******************************************************************* -->
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</body>
+
+</html>

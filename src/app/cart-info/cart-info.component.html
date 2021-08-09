@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div class="container text-center" id="cart-info">
+
+    <img src="../../assets/images/add-to-favorites.png" alt="" height="100px">
+    <h1 class="book-cart">Book Cart</h1>
+
+
+
+    <!-- if is empty  -->
+    <mat-card class="empty-cart" *ngIf="noCartIteams">
+      <div>
+        <mat-icon>remove_shopping_cart</mat-icon>
+        <h1>your cart is empty</h1>
+      </div>
+    </mat-card>
+
+
+    <mat-card style="overflow-x:auto;" *ngIf="!noCartIteams">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Sub Total</th>
+            <th scope="col">Remove Iteam</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let obj of getDetails; let i=index;">
+            <th scope="row" class="text-center">{{i+1}}</th>
+            <td class="text-center"><img src="data:image/jpeg;base64,{{obj.picByte}}" height="200px"></td>
+            <td class="text-center">{{obj.name}}</td>
+            <td class="text-center">₹{{obj.price}}</td>
+
+
+            <td class="text-center"> <button mat-mini-fab color="accent" (click)="updateIteam(1,obj.id)">
+                <mat-icon>add</mat-icon>
+              </button>
+              <span class="ml-2 mr-2">{{obj.qnt}}</span>
+              <!-- <input type="number"  step="1" max="4"  min="1" [value]="obj.qnt"> -->
+
+              <button mat-mini-fab color="accent" (click)="updateIteam(0,obj.id)">
+                <mat-icon>remove</mat-icon>
+              </button>
+            </td>
+
+
+
+
+
+            <td class="text-center">₹{{obj.price * obj.qnt}}</td>
+            <td class="text-center">
+              <button mat-mini-fab style="background-color: red;" (click)="romoveSingal(obj.id)">
+                <mat-icon>delete_outline</mat-icon>
+
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <mat-icon style="color: crimson; font-size: 30px; margin-top: 10px;">account_balance_wallet</mat-icon>
+      <h1 class="cart-total">
+
+        Total= ₹{{total}}</h1>
+
+
+      <div class="container text-center mt-4">
+        <button mat-flat-button color="primary" (click)="placeOrder()">Checkout</button>
+        <button mat-flat-button color="warn" class="ml-4" (click)="removeAll()">removie All</button>
+      </div>
+    </mat-card>
+
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+
+
+
+</body>
+
+</html>

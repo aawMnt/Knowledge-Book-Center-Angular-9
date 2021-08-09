@@ -1,0 +1,62 @@
+<mat-toolbar color="primary" class="fixed-top ">
+
+  <!-- title and log of site  -->
+  <img src="../../../assets/images/knowlage-book.png" alt="" height="50px">
+
+
+  <span class="example-spacer"></span>
+  <div fxHide.gt-xs>
+
+
+    <!-- mat side bar for responsive site  -->
+    <div class="row">
+      <div class="log-out mr-2" *ngIf="!logOut">
+        <button mat-flat-button color="warn" (click)="logOutClick()">
+          LogOut
+        </button> 
+      </div>
+
+      <button mat-mini-fab color="primary" routerLink="cart-info" *ngIf="logOut">
+        <mat-icon matBadge="{{cartBooks}}" matBadgeColor="warn">
+          shopping_bag
+        </mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="onToggleSidenav()" *ngIf="logOut">
+        <mat-icon style="font-size: 30px; color: chartreuse;">menu</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- nav-bar buttons  -->
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+
+      <li>
+        <button mat-raised-button color="primary" class="mr-4 mt-2" routerLink="/" *ngIf="logOut">
+          Home
+        </button>
+      </li>
+      <li>
+        <button mat-raised-button color="primary" class="mr-4 mt-2" routerLink="/about-us" *ngIf="logOut">
+          About Us
+        </button>
+      </li>
+      <li>
+        <button mat-fab color="primary" routerLink="cart-info" *ngIf="logOut">
+          <mat-icon matBadge="{{cartBooks}}" matBadgeColor="warn">
+            shopping_bag
+          </mat-icon>
+        </button>
+      </li>
+      <li>
+        <div class="log-out" *ngIf="!logOut">
+          <button mat-flat-button color="warn" (click)="logOutClick()">
+            LogOut
+          </button>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

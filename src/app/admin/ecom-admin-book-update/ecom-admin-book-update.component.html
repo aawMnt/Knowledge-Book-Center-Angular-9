@@ -1,0 +1,59 @@
+<div class="bootsrap-wraper">
+    <div class="container text-center">
+        <div class="col-md-10">
+            <h1>Update Books</h1>
+            
+            <form [formGroup]="updateBook"  *ngIf="updBook">
+                 <!-- book name -->
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Book Name</mat-label>
+                    <input matInput placeholder="Book"  formControlName="name" [(ngModel)]="updBook.name" name="name">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    
+                  </mat-form-field>
+                    
+                  <!-- book author -->
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Book Author Name</mat-label>
+                    <input matInput placeholder="Auther"  formControlName="author" [(ngModel)]="updBook.author">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                   
+                  </mat-form-field>
+
+                  <!-- book price -->
+
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Book Price</mat-label>
+                    <input type="number" matInput placeholder="Price"  formControlName="price" [(ngModel)]="updBook.price">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    
+                  </mat-form-field>
+
+                  <!-- book qnt -->
+                  <!-- <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Book Quentyty</mat-label>
+                    <input type="number" matInput placeholder="quntity"  formControlName="qnt" [(ngModel)]="updBook.qnt">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    
+                  </mat-form-field> -->
+
+
+                   <div class="container">
+                    <!-- <img [src]="imgUrl" *ngIf="imgUrl" height="200px"> -->
+                   </div>
+
+                  <!-- img file  -->
+                  <input type="file" accept="image/*" (change)="file($event)">
+
+                 
+
+                  <div class="container mt-4 pb-4">
+                    <button mat-flat-button color="primary" class="mr-4" (click)="updateBookClk(updateBook)">Update BOOK</button>
+                    <button mat-flat-button color="accent">RESET</button>
+                  </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

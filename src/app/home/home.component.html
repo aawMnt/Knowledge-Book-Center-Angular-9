@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+
+<div class="container text-center" style="padding-top: 100px;">
+
+<div class="row">
+  <div class="col-md-4">
+    
+  </div>
+  <div class="col-md-4">
+    <img src="../../../assets/images/book-icon.png" height="80px">
+    <h1 id="top-title" class="mt-4"><b >Knowledge Book Center</b></h1>
+  </div>
+  <div class="col-md-4">
+    
+  </div>
+</div>
+
+ 
+</div>
+
+
+
+<div class="container-fluid" id="title-img">
+  
+     <div class="col-md-6 text-center">
+     <div class="container" style="padding-top: 150px;">
+      <h1 id="title">READING IS SELFCARE</h1>
+      <h4 id="sub-title">Read, Lead & Succeed</h4>
+      <button (click)="shop()" id="button"><span>Shop Now!</span></button>
+     </div>
+     </div>
+  
+</div>
+
+
+
+<div class="container mt-4">
+
+      <!-- search box  -->
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+
+           <mat-card style="padding-bottom:0%; background-color:#90a4ae;">
+            <mat-form-field appearance="outline" class="w-100 mt-2">
+                
+              <mat-label style="color: #c51162">Search...</mat-label>
+                <input matInput placeholder="search by book name or author Or price..." [(ngModel)]="searchTitle"
+                    (ngModelChange)="search()" style="color: #c51162;">
+                <mat-icon matSuffix>search</mat-icon>
+
+            </mat-form-field>
+           </mat-card>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <!-- search box end  -->
+  
+</div>
+
+
+
+ 
+  
+
+  <div class="container-fluid" id="shopBook">
+    <div class="row">
+      <!-- *******************************************************For loop************************************************************************** -->
+
+      <div class="col-md-4 text-center" *ngFor="let book of books |  paginate: { itemsPerPage: 6, currentPage: p }">
+        <mat-card class="text-center" id="mat-card">
+          <img src="{{book.retrievedImage}}" height="150px">
+          <mat-card-title>
+             <p class="book-name">{{book.name}}: <br><span class="book-price">₹{{book.price}}</span></p>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p class="book-author">{{book.author}}</p>
+          </mat-card-subtitle>
+          <mat-card-actions class="mb-2">
+           
+            <button mat-raised-button color="primary" (click)="addToCart(book.id)" [disabled]="book.isAdded===true"
+              class="mt-4">
+              Add to Cart
+            </button>
+          </mat-card-actions>
+
+        </mat-card>
+        
+      </div>
+      <div class="container mt-4">
+        <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+      </div>
+
+    </div>
+  </div>
+  <div class="mt-4">
+    <app-footer></app-footer>
+  </div>
+
+</body>
+
+</html>

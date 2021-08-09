@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital@1&family=Raleway:wght@200&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital@1&family=Raleway:wght@200&family=Rubik:wght@500&display=swap');
+body{
+    padding-top: 100px;
+    height: auto;
+    background-color: #00695f;
+    padding-bottom: 20px;
+}
+
+.about-us{
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: #ffab00;
+    font-family: 'Bona Nova', serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Rubik', sans-serif;
+}
+.content{
+    margin-top: 50px;
+}
+.about-text{
+    font-size:19px ;
+    text-transform: capitalize;
+    word-spacing: 4px;
+    color: #c51162;
+    font-family: 'Bona Nova', serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    
+    
+}
+.text-mat-card{
+    background-color: #b3e5fc;
+}
+.icon-mat-card{
+    width: auto;
+}
+
+@media only screen and (max-width: 600px) {
+#shop-img{
+    height: auto;
+}
+.about-text{
+    font-size: 10px;
+}
+
+}

@@ -1,0 +1,100 @@
+<mat-card>
+    <div class="container-fluid">
+        <h1>Customer Personal Information</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone No.</th>
+                    <th scope="col">Delivery Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">City Pin</th>
+                    <th scope="col">Order Date and Time</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{details.firstname}}</td>
+                    <td>{{details.lastname}}</td>
+                    <td>{{details.email}}</td>
+                    <td>{{details.phoneNo}}</td>
+                    <td>{{details.address}}</td>
+                    <td>{{details.city}}</td>
+                    <td>{{details.pin}}</td>
+                    <td><b>{{details.orderDate | date: 'dd/MM/yyyy,h:MM a'}}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
+
+<mat-card class="mt-4">
+    <div class="container-fluid mt-4">
+        <h1>Customer Orders Information</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book Image</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quentity</th>
+                    <th scope="col">Total Price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of details.product; let i=index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td><img src="data:image/jpeg;base64,{{obj.picByte}}" alt="{{obj.name}}" height="100px"></td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.author}}</td>
+                    <td>{{obj.price}}</td>
+                    <td>{{obj.qnt}}</td>
+                    <td>{{obj.totalPrice}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
+
+
+<mat-card class="mt-4 mb-4">
+    <div class="container-fluid mt-4">
+        <h1>Customer Payment Information</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Card Holder Name</th>
+                    <th scope="col">Card Number</th>
+                    <th scope="col">Card Expired Date</th>
+                    <th scope="col">Card CVV No.</th>
+                    <th scope="col">Payment Type</th>
+                    <th scope="col">Payment Date and Time</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{details.payment.cardName}}</td>
+                    <td>{{details.payment.cardNo}}</td>
+                    <td>{{details.payment.expiryDate}}</td>
+                    <td>{{details.payment.cvvNo}}</td>
+                    <td>{{details.payment.cardType}}</td>
+                    <td><b>{{details.payment.currentUtilDate | date: 'dd/MM/yyyy,h:MM a'}}</b></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
